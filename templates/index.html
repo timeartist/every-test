@@ -3,37 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>NonProfit Matcher - Find Your Cause</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #f5f5f5;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            text-align: center;
-            background-color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
             color: #333;
         }
-        p {
-            color: #666;
+        header {
+            background-color: #4a7c59;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+        nav {
+            background-color: #3a5a40;
+            padding: 0.5rem;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem;
+        }
+        nav a:hover {
+            background-color: #588157;
+            border-radius: 4px;
+        }
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem;
+            background-color: #a3b18a;
+            color: #344e41;
+        }
+        .content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .mission, .programs, .donate {
+            flex-basis: 30%;
+            background-color: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #e76f51;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+        footer {
+            background-color: #344e41;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        .dropdown {
+            margin: 2rem auto;
+            text-align: center;
+        }
+        select {
+            padding: 0.8rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            min-width: 300px;
+        }
+        @media (max-width: 768px) {
+            .mission, .programs, .donate {
+                flex-basis: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Hello, World!</h1>
-        <p>This is a simple Hello World page with some basic CSS styling.</p>
+    <header>
+        <h1>NonProfit Matcher</h1>
+        <p>Connecting passion with purpose</p>
+    </header>
+    
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">How It Works</a>
+        <a href="#">Causes</a>
+        <a href="#">For NonProfits</a>
+        <a href="#">Support Us</a>
+        <a href="#">Contact</a>
+    </nav>
+    
+    <section class="hero">
+        <h2>Find the Perfect Cause for Your Values</h2>
+        <p>We help you discover nonprofits that align with what matters most to you.</p>
+        <div class="dropdown">
+            <select id="cause-selector">
+                <option value="">Select a cause you're passionate about...</option>
+                <option value="aapi-led">AAPI-Led</option>
+                <option value="adoption">Adoption</option>
+                <option value="afghanistan">Afghanistan</option>
+                <option value="animals">Animals</option>
+                <option value="art">Art</option>
+                <option value="athletics">Athletics</option>
+                <option value="autism">Autism</option>
+                <option value="black-led">Black-Led</option>
+                <option value="buddhism">Buddhism</option>
+                <option value="cancer">Cancer</option>
+                <option value="cats">Cats</option>
+                <option value="christianity">Christianity</option>
+                <option value="climate">Climate</option>
+                <option value="conservation">Conservation</option>
+                <option value="coronavirus">Coronavirus</option>
+                <option value="culture">Culture</option>
+                <option value="dance">Dance</option>
+                <option value="disabilities">Disabilities</option>
+                <option value="disease">Disease</option>
+                <option value="dogs">Dogs</option>
+                <option value="education">Education</option>
+                <option value="environment">Environment</option>
+                <option value="filmandtv">Film & TV</option>
+                <option value="food-security">Food Security</option>
+                <option value="freepress">Free Press</option>
+                <option value="gender-equality">Gender Equality</option>
+                <option value="health">Health</option>
+                <option value="hinduism">Hinduism</option>
+                <option value="housing">Housing</option>
+                <option value="humans">Humans</option>
+                <option value="hurricane-ian">Hurricane Ian</option>
+                <option value="immigrants">Immigrants</option>
+                <option value="indigenous-led">Indigenous-Led</option>
+                <option value="indigenous-peoples">Indigenous Peoples</option>
+                <option value="islam">Islam</option>
+                <option value="judaism">Judaism</option>
+                <option value="justice">Justice</option>
+                <option value="latine-led">Latine-Led</option>
+                <option value="legal">Legal</option>
+                <option value="lgbt">LGBT</option>
+                <option value="libraries">Libraries</option>
+                <option value="mental-health">Mental Health</option>
+                <option value="museums">Museums</option>
+                <option value="music">Music</option>
+                <option value="oceans">Oceans</option>
+                <option value="parks">Parks</option>
+                <option value="poverty">Poverty</option>
+                <option value="racial-justice">Racial Justice</option>
+                <option value="radio">Radio</option>
+                <option value="refugees">Refugees</option>
+                <option value="religion">Religion</option>
+                <option value="research">Research</option>
+                <option value="science">Science</option>
+                <option value="seniors">Seniors</option>
+                <option value="space">Space</option>
+                <option value="theater">Theater</option>
+                <option value="transgender">Transgender</option>
+                <option value="ukraine">Ukraine</option>
+                <option value="veterans">Veterans</option>
+                <option value="votingrights">Voting Rights</option>
+                <option value="water">Water</option>
+                <option value="wildfires">Wildfires</option>
+                <option value="wildlife">Wildlife</option>
+                <option value="women-led">Women-Led</option>
+                <option value="womens-health">Women's Health</option>
+                <option value="youth">Youth</option>
+            </select>
+        </div>
+        <a href="#" class="cta-button">Find My Match</a>
+    </section>
+    
+    <div class="content">
+        <div class="mission">
+            <h3>Our Mission</h3>
+            <p>NonProfit Matcher is dedicated to bridging the gap between passionate individuals and the causes they care about. We believe everyone should be able to easily find organizations that align with their values.</p>
+            <a href="#" class="cta-button">Learn More</a>
+        </div>
+        
+        <div class="programs">
+            <h3>How We Help</h3>
+            <p>Our platform connects you with vetted nonprofits based on your interests, location, and preferred level of involvement. We've partnered with over 500 organizations across diverse causes.</p>
+            <a href="#" class="cta-button">Browse Causes</a>
+        </div>
+        
+        <div class="donate">
+            <h3>Support Our Platform</h3>
+            <p>As a nonprofit ourselves, we rely on generous supporters to maintain our free matching service. Your contribution helps us connect more people with causes they care about.</p>
+            <a href="#" class="cta-button">Donate Now</a>
+        </div>
     </div>
+    
+    <footer>
+        <p>&copy; 2023 NonProfit Matcher. All rights reserved.</p>
+        <p>456 Connection Ave, Matchville, CA 94321 | info@nonprofitmatcher.org | (555) 987-6543</p>
+    </footer>
 </body>
 </html>
