@@ -12,7 +12,7 @@ app = Flask(__name__)
 ## - add pagination to results page
 ## - add direct donation link using every.org api
 ## - add filter by location/other values
-## - add db/cache so we're not hitting the API for every call
+## - add db/cache so we're not hitting the API for every call and so that we can slice and dice data better
 ## - add tests/build/deploy pipeline
 
 EVERY_ORG_API_KEY = environ.get('EVERY_ORG_API_KEY')
@@ -29,7 +29,7 @@ def index():
 def show_cause(cause):
     # Make API request to Every.org
     ## TODO: implement pagination and/or increase limit of results.  
-    ## TODO Use url builder if it gets more complicated this this
+    ## TODO Use url builder if it gets more complicated than this
     url = f"https://partners.every.org/v0.2/search/{cause}?apiKey={EVERY_ORG_API_KEY}"#&take={CAUSE_RESULTS_COUNT}"
  
     print(f'api call start - {url}')
