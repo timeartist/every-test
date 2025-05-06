@@ -179,7 +179,7 @@
                 <option value="youth">Youth</option>
             </select>
         </div>
-        <a href="#" class="cta-button">Find My Match</a>
+        <a href="#" id="find-match-btn" class="cta-button">Find My Match</a>
     </section>
     
     <div class="content">
@@ -207,4 +207,15 @@
         <p>456 Connection Ave, Matchville, CA 94321 | info@nonprofitmatcher.org | (555) 987-6543</p>
     </footer>
 </body>
+<script>
+    document.getElementById('find-match-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    const selectedValue = document.getElementById('cause-selector').value;
+    if (selectedValue) {
+        window.location.href = '/cause/' + selectedValue;
+    } else {
+        alert('Please select a cause first');
+    }
+    });
+</script>
 </html>

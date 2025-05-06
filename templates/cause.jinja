@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NonProfit Matcher - {{ cause }} Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #4a7c59;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+        nav {
+            background-color: #3a5a40;
+            padding: 0.5rem;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem;
+        }
+        nav a:hover {
+            background-color: #588157;
+            border-radius: 4px;
+        }
+        .hero {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: #a3b18a;
+            color: #344e41;
+        }
+        .results-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        .search-results {
+            margin-bottom: 2rem;
+        }
+        .result-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .result-card h3 {
+            margin-top: 0;
+            color: #3a5a40;
+        }
+        .result-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            padding: 2rem;
+            margin: 1.5rem 2rem;
+            transition: transform 0.2s;
+            border-left: 4px solid #4a7c59;
+        }
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .result-card p {
+            margin: 0.5rem 0;
+        }
+        .result-card a {
+            color: #e76f51;
+            text-decoration: none;
+        }
+        .result-card a:hover {
+            text-decoration: underline;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .pagination a, .pagination span {
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        .pagination a {
+            background-color: #588157;
+            color: white;
+        }
+        .pagination a:hover {
+            background-color: #3a5a40;
+        }
+        .pagination .current {
+            background-color: #e76f51;
+            color: white;
+        }
+        .pagination .disabled {
+            background-color: #ccc;
+            color: #666;
+        }
+        .no-results {
+            text-align: center;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #344e41;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #e76f51;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+        .filter-section {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NonProfit Matcher</h1>
+        <p>Connecting passion with purpose</p>
+    </header>
+    
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">How It Works</a>
+        <a href="#">Causes</a>
+        <a href="#">For NonProfits</a>
+        <a href="#">Support Us</a>
+        <a href="#">Contact</a>
+    </nav>
+    
+    <section class="hero">
+        <h2>Search Results for: {{ cause }}</h2>
+        <!-- <p>We found {{ total_results }} nonprofits that match your interests</p> -->
+    </section>
+
+        <div class="search-results">
+            {% if nonprofits %}
+                {% for nonprofit in nonprofits %}
+                <div class="result-card">
+                    <h3>{{ nonprofit.name }}</h3>
+                    <p><strong>Location:</strong> {{ nonprofit.location }}</p>
+                    <p><strong>Website:</strong> <a href="{{ nonprofit.website }}" target="_blank">{{ nonprofit.website }}</a></p>
+                    <p>{{ nonprofit.description|truncate(150) }}</p>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="no-results">
+                    <h3>No results found</h3>
+                    <p>Try adjusting your search criteria or explore other causes.</p>
+                    <a href="{{ url_for('index') }}" class="cta-button">Back to Search</a>
+                </div>
+            {% endif %}
+        </div>
+
+    <footer>
+        <p>&copy; 2023 NonProfit Matcher. All rights reserved.</p>
+        <p>456 Connection Ave, Matchville, CA 94321 | info@nonprofitmatcher.org | (555) 987-6543</p>
+    </footer>
+</body>
+</html>
