@@ -1,5 +1,4 @@
 from os import environ
-from pprint import pp
 
 import requests
 from flask import Flask, render_template
